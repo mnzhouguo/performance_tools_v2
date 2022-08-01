@@ -39,11 +39,11 @@ public class ExcelWorkCollect {
     @ExcelProperty("出项时间")
     private String outOfTime;
 
-    @ExcelProperty("人月")
-    private String manMonth;
+    @ExcelProperty("项目人月")
+    private String projectManMonth;
 
-    @ExcelProperty("工时")
-    private String manHour;
+    @ExcelProperty("项目工时")
+    private String projectManHour;
 
     @ExcelProperty("备注")
     private String remake;

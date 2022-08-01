@@ -32,3 +32,6 @@ build/
 ### VS Code ###
 .vscode/
 /员工信息.xlsx
+/报工汇总.xlsx
+/报工明细 (6).xls
+/请假信息.xls

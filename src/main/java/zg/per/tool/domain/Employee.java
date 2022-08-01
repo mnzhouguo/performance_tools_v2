@@ -39,7 +39,6 @@ public class Employee {
      */
     private String position;
 
-
     /**
      * 总报工小时数
      */
@@ -61,25 +60,25 @@ public class Employee {
     private List<EmployeeLeaveRecord> employeeLeaveRecordList;
 
     public List<ExcelWorkCollect> toExcelWorkCollect() {
-        List<ExcelWorkCollect> list = new ArrayList();
+        List<ExcelWorkCollect> list = new ArrayList<ExcelWorkCollect>();
 
         if (this.employeeWorkRecordList != null && this.employeeWorkRecordList.size() > 0) {
             for (EmployeeWorkRecord record : this.employeeWorkRecordList) {
                 ExcelWorkCollect excelWorkCollect = new ExcelWorkCollect();
+
                 excelWorkCollect.setEmployeeId(this.id);
                 excelWorkCollect.setEmployeeName(this.name);
-
                 excelWorkCollect.setTag(this.businessTag);
                 excelWorkCollect.setPosition(this.position);
+                excelWorkCollect.setTotalManHour(String.valueOf(this.totalManHour));
+                excelWorkCollect.setTotalManMonth(String.valueOf(this.totalManMonth));
 
                 excelWorkCollect.setProjectId(record.getProject().getId());
                 excelWorkCollect.setProjectName(record.getProject().getName());
 
-                excelWorkCollect.setManHour(String.valueOf(record.getManHour()));
-                excelWorkCollect.setManMonth(String.valueOf(record.getManMonth()));
+                excelWorkCollect.setTotalManHour(String.valueOf(record.getManHour()));
+                excelWorkCollect.setTotalManMonth(String.valueOf(record.getManMonth()));
 
-                excelWorkCollect.setTotalManHour(String.valueOf(this.totalManHour));
-                excelWorkCollect.setTotalManMonth(String.valueOf(this.totalManMonth));
 
                 list.add(excelWorkCollect);
             }
