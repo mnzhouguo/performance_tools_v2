@@ -1,0 +1,36 @@
+# Tomcat 核心配置
+server:
+  tomcat:
+    uri-encoding: UTF-8
+
+    # tomcat线程池配置
+    #最小线程数 最小备用线程数，tomcat启动时的初始化的线程数
+    min-spare-threads: 20
+
+    #最大线程数
+    # max-threads：Tomcat可创建的最大的线程数，每一个线程处理一个请求，超过这个请求数后，客户端请求只能排队，等有线程释放才能处理
+    #（建议这个配置数可以在服务器CUP核心数的200~250倍之间）
+    # 4核8g内存，线程数经验值800，操作系统做线程之间的切换调度是有系统开销的，所以不是越多越好。
+    max-threads: 100
+
+    #最大链接数
+    # 这个参数是指在同一时间，tomcat能够接受的最大连接数。一般这个值要大于(max-threads)+(accept-count)
+    max-connections: 6500
+
+    #最大等待队列长度：当调用Web服务的HTTP请求数达到tomcat的最大线程数时，还有新的HTTP请求到来，这时tomcat会将该请求放在等待队列中，
+    #这个acceptCount就是指能够接受的最大等待数，默认100。如果等待队列也被放满了，这个时候再来新的请求就会被tomcat拒绝（connection refused）
+    accept-count: 10
+
+    # 请求内容设置
+    #请求头最大长度kb
+    max-http-header-size: 1048576
+    #请请求体最大长度kb
+
+    max-http-post-size: 2097152
+
+  #服务http端口
+  #port: 8080
+
+  #链接建立超时时间--毫秒
+  #最长等待时间，如果没有数据进来，等待一段时间后断开连接，释放线程;
+  connection-timeout: 12000
